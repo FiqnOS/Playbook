@@ -1,0 +1,64 @@
+---
+title: Final Tasks
+description: Finalizing The FiqnOS Playbook Installation
+actions:
+
+- !writeStatus: {status: "Copying Files"}
+- !run:
+  exeDir: true
+  exe: "Copy.bat"
+
+- !run:
+  exeDir: true
+  exe: "PowerShell"
+  args: '-NoP -ExecutionPolicy Bypass -File SVCGROUP.ps1'
+  weight: 50
+
+- !taskKill: {name: "explorer"}
+- !taskKill: {name: "SecurityHealthHost"}
+- !taskKill: {name: "SecurityHealthService"}
+- !taskKill: {name: "SecurityHealthSystray"}
+- !taskKill: {name: "SkypeBackgroundHost"}
+- !taskKill: {name: "onedrive"}
+
+- !writeStatus: {status: "Removing logs"}
+- !run:
+  exeDir: true
+  exe: "PowerShell"
+  args: '-NoP -ExecutionPolicy Bypass -File CLEANER.ps1'
+  weight: 150
+
+- !writeStatus: {status: "Installing C++ Packages"}
+- !run: 
+  exeDir: true
+  exe: "install.bat"
+  weight: 100
+
+- !writeStatus: {status: "Configuring StartMenu"}
+- !run:
+  exeDir: true
+  exe: "STARTMENU.bat"
+  weight: 100
+
+- !writeStatus: {status: "Removing OneDrive"}
+- !run:
+  exeDir: true
+  exe: "ONED.bat"
+  weight: 50
+
+- !writeStatus: {status: "Configuring Device Manager"}
+- !run: 
+  exeDir: true
+  exe: "DEVMANVIEW.bat"
+
+- !writeStatus: {status: "Disabling Defender"}
+- !run:
+  exeDir: true
+  exe: "Defender.bat"
+  weight: 40
+
+- !writeStatus: {status: "Finalize"}
+- !run: 
+  exeDir: true
+  exe: "FINALIZE.bat"
+  weight: 150

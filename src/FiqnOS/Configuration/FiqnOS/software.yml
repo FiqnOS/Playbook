@@ -1,0 +1,13 @@
+---
+title: Software
+description: Installs preferred softwares
+actions:
+
+# StartAllBack
+- !run:
+  exeDir: true
+  exe: "SAB.exe"
+  weight: 70
+  option: "software"
+  cpuArch: "x64"
+  args: "/s"

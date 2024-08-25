@@ -1,0 +1,13 @@
+---
+title: Root Playbook File
+description: Runs all of the Playbook files
+privilege: Admin
+actions: []
+features:
+- FiqnOS\start.yml
+- FiqnOS\software.yml
+- FiqnOS\appx.yml
+- FiqnOS\Services.yml
+- FiqnOS\components.yml
+- FiqnOS\registry.yml
+- FiqnOS\FinalTasks.yml

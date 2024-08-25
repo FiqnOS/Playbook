@@ -1,0 +1,22 @@
+---
+title: Components
+description: Remove windows components and files
+actions:
+  - !writeStatus: {status: "Removing components"}
+  - !taskKill: {name: "explorer"}
+  - !taskKill: {name: "SecurityHealthHost"}
+  - !taskKill: {name: "SecurityHealthService"}
+  - !taskKill: {name: "SecurityHealthSystray"}
+  - !taskKill: {name: "SkypeBackgroundHost"}
+  - !taskKill: {name: "OneDrive"}
+
+  # Разрешение на удаление Edge, EdgeUpdate, WebView
+  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge', value: 'NoRemove', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update', value: 'NoRemove', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView', value: 'NoRemove', type: REG_DWORD, data: '0'}
+
+  # Clear caches of Client.CBS and more
+  - !appx: {operation: clearCache, name: '*Windows.Search*'}
+  - !appx: {operation: clearCache, name: '*Windows.SecHealthUI*'}
+  - !appx: {operation: clearCache, name: '*Client.CBS*'}
+  - !appx: {operation: clearCache, name: '*TCUI*'}

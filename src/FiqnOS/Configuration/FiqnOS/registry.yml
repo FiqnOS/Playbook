@@ -1,0 +1,9 @@
+---
+title: Registry
+description: FiqnOS registry
+actions: 
+- !writeStatus: {status: "Configuring Registry"}
+
+features:
+- tweaks\windows-settings.yml
+- tweaks\oem-information.yml

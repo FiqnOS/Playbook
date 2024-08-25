@@ -1,0 +1,63 @@
+---
+title: APPX
+description: Removed of APPX packages
+actions:
+  - !writeStatus: {status: 'Removing APPX packages'}
+  - !appx: {name: '*3DViewer*', type: family, weight: 10}
+  - !appx: {name: '*Bing*', type: family, weight: 10}
+  - !appx: {name: '*CamoStudio*', type: family, weight: 10}
+  - !appx: {name: '*Client.WebExperience*', type: family, weight: 10}
+  - !appx: {name: '*Clipchamp*', type: family, weight: 10}
+  - !appx: {name: '*CloudExperienceHost*', type: family, weight: 10}
+  - !appx: {name: '*CommsPhone*', type: family, weight: 10}
+  - !appx: {name: '*ConnectivityStore*', type: family, weight: 10}
+  - !appx: {name: '*Disney*', type: family, weight: 10}
+  - !appx: {name: '*FeedbackHub*', type: family, weight: 10}
+  - !appx: {name: '*GamingApp*', type: family, weight: 10}
+  - !appx: {name: '*Getstarted*', type: family, weight: 10}
+  - !appx: {name: '*Microsoft.549981C3F5F10*', type: family, weight: 10}
+  - !appx: {name: '*Microsoft.GetHelp*', type: family, weight: 10}
+  - !appx: {name: '*Microsoft.Messaging*', type: family, weight: 10}
+  - !appx: {name: '*Microsoft.OneConnect*', type: family, weight: 10}
+  - !appx: {name: '*Microsoft.People*', type: family, weight: 10}
+  - !appx: {name: '*Microsoft.Todos*', type: family, weight: 10}
+  - !appx: {name: '*Microsoft.WindowsAlarms*', type: family, weight: 10}
+  - !appx: {name: '*Microsoft.WindowsStore*', type: family, weight: 10}
+  - !appx: {name: '*MicrosoftOfficeHub*', type: family, weight: 10}
+  - !appx: {name: '*MicrosoftTeams*', type: family, weight: 10}
+  - !appx: {name: '*MixedReality*', type: family, weight: 10}
+  - !appx: {name: '*OneNote*', type: family, weight: 10}
+  - !appx: {name: '*OutlookForWindows*', type: family, weight: 10}
+  - !appx: {name: '*PeopleExperienceHost*', type: family, weight: 10}
+  - !appx: {name: '*Photos*', type: family, weight: 10}
+  - !appx: {name: '*QuickAssist*', type: family, weight: 10}
+  - !appx: {name: '*SecHealthUI*', type: family, weight: 10}
+  - !appx: {name: '*SkypeApp*', type: family, weight: 10}
+  - !appx: {name: '*Solit*', type: family, weight: 10}
+  - !appx: {name: '*Spotify*', type: family, weight: 10}
+  - !appx: {name: '*Sticky*', type: family, weight: 10}
+  - !appx: {name: '*StorePurchaseApp*', type: family, weight: 10}
+  - !appx: {name: '*Sway*', type: family, weight: 10}
+  - !appx: {name: '*Wallet*', type: family, weight: 10}
+  - !appx: {name: '*Windows.DevHome*', type: family, weight: 10}
+  - !appx: {name: '*WindowsCamera*', type: family, weight: 10}
+  - !appx: {name: '*windowscommunicationsapps*', type: family, weight: 10}
+  - !appx: {name: '*WindowsMaps*', type: family, weight: 10}
+  - !appx: {name: '*WindowsPhone*', type: family, weight: 10}
+  - !appx: {name: '*WindowsSoundRecorder*', type: family, weight: 10}
+  - !appx: {name: '*Xbox.TCUI*', type: family, weight: 10}
+  - !appx: {name: '*XboxApp*', type: family, option: 'remove-xbox', weight: 10}
+  - !appx: {name: '*XboxGameCallableUI*', type: family, option: 'remove-xbox', weight: 10}
+  - !appx: {name: '*XboxGameOverlay*', type: family, option: 'remove-xbox', weight: 10}
+  - !appx: {name: '*XboxGamingOverlay*', type: family, option: 'remove-xbox', weight: 10}
+  - !appx: {name: '*XboxIdenitity*', type: family, option: 'remove-xbox', weight: 10}
+  - !appx: {name: '*XboxSpeechToTextOverlay*', type: family, option: 'remove-xbox', weight: 10}
+  - !appx: {name: '*YourPhone*', type: family, weight: 10}
+  - !appx: {name: '*Zune*', type: family, weight: 10}
+  - !appx: {name: '*Paint*', type: family, weight: 10}
+  - !appx: {name: '*MicrosoftWindows.Client.AIX*', type: family, weight: 10}
+  - !appx: {name: '*MicrosoftWindows.CrossDevice*', type: family, weight: 10}
+
+  - !appx: {name: '*Client.CBS*', operation: clearCache}
+  - !appx: {name: '*StartMenuExperienceHost*', operation: clearCache}
+  - !appx: {name: '*Windows.Search*', operation: clearCache}
