@@ -7,7 +7,7 @@
 
 ### System requirements
 
-- Windows 10 21H2 `19044` 
+- Windows 10 21H2 `19044` (LTSC)
 
 - Windows 10 22H2 `19045`
 
