@@ -1,4 +1,4 @@
-![image](https://github.com/FiqnOS/FiqnOS/blob/main/photos/banner.png)          
+![image](https://github.com/FiqnOS/FiqnOS/photos/banner.png)          
 
 ### How to use it
 1. Download [AME Wizard](https://download.ameliorated.io/AME%20Wizard%20Beta.zip)
