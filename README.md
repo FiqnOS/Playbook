@@ -2,7 +2,7 @@
 ##### Recommended install clean **[Windows](https://massgrave.dev/genuine-installation-media)**, before using Playbook
 
 ### 🤷‍♂️ How to use it?
-1. Download [AME Wizard](https://download.ameliorated.io/AME%20Wizard%20Beta.zip)
+1. Download **[AME Wizard](https://download.ameliorated.io/AME%20Wizard%20Beta.zip)**
 2. Download Playbook
 3. Import playbook in AME Wizard
 
