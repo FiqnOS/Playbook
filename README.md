@@ -1,5 +1,7 @@
 ![image](https://github.com/FiqnOS/Playbook/blob/main/photos/FiqnOS.png)            
-### How to use it
+##### Recommended install clean Windows, before using Playbook
+
+### 🤷‍♂️ How to use it?
 1. Download [AME Wizard](https://download.ameliorated.io/AME%20Wizard%20Beta.zip)
 2. Download Playbook
 3. Import playbook in AME Wizard
