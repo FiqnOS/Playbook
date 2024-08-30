@@ -1,5 +1,5 @@
 ![image](https://github.com/FiqnOS/Playbook/blob/main/photos/FiqnOS.png)            
-##### Recommended install clean **[Windows](https://msdl.gravesoft.dev/)**, before using Playbook
+##### Recommended install clean **[Windows](https://massgrave.dev/genuine-installation-media)**, before using Playbook
 
 ### 🤷‍♂️ How to use it?
 1. Download [AME Wizard](https://download.ameliorated.io/AME%20Wizard%20Beta.zip)
