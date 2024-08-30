@@ -5,7 +5,7 @@
 1. Download **[AME Wizard](https://download.ameliorated.io/AME%20Wizard%20Beta.zip)**
 2. Download Playbook
 3. Import playbook in AME Wizard
-![stupid](https://github.com/FiqnOS/Playbook/blob/main/photos/FiqnOS.png)
+![stupid](https://github.com/FiqnOS/Playbook/blob/main/photos/NVIDIA_Overlay_BhyU3skENv.gif)
 
 ### 🖥️ System requirements
 
