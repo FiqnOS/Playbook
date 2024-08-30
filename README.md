@@ -4,7 +4,7 @@
 2. Download Playbook
 3. Import playbook in AME Wizard
 
-### System requirements
+### 🖥️ System requirements
 
 - Windows 10 21H2 `19044` (LTSC)
 
