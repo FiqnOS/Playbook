@@ -22,4 +22,4 @@
 - Windows 11 24H2 `26100`
 
 > [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
+> Do not use on Windows by Flibustier, you get BSOD after reboot and startup!
