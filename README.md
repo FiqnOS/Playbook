@@ -22,4 +22,4 @@
 - Windows 11 24H2 `26100`
 
 > [!CAUTION]
-> Do not use on Windows by Flibustier, you get BSOD after reboot and startup!
+> Do not use the Windows build by Flibustier, you get BSOD after reboot!
