@@ -55,7 +55,7 @@ actions:
   - !appx: {name: '*YourPhone*', type: family, weight: 10}
   - !appx: {name: '*Zune*', type: family, weight: 10}
   - !appx: {name: '*Paint*', type: family, weight: 10}
-  - !appx: {name: '*MicrosoftWindows.Client.AIX*', type: family, weight: 10}
+#  - !appx: {name: '*MicrosoftWindows.Client.AIX*', type: family, weight: 10}
   - !appx: {name: '*MicrosoftWindows.CrossDevice*', type: family, weight: 10}
 
   - !appx: {name: '*Client.CBS*', operation: clearCache}
