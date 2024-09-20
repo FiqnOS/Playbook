@@ -22,12 +22,8 @@ actions:
 - !service: {name: 'diagnosticshub.standardcollector.service', operation: change, startup: 4}
 - !service: {name: 'dmwappushservice', operation: change, startup: 4}
 - !service: {name: 'DiagTrack', operation: change, startup: 4}
-- !service: {name: 'tiledatamodelsvc', operation: change, startup: 4}
-- !service: {name: 'CDPUserSvc', operation: change, startup: 4}
 - !service: {name: 'wlpasvc', operation: change, startup: 4}
 - !service: {name: 'DmEnrollmentSvc', operation: change, startup: 4}
-- !service: {name: 'WinRM', operation: change, startup: 4}
-- !service: {name: 'LxpSvc', operation: change, startup: 4}
 - !service: {name: 'SNMPTRAP', operation: change, startup: 4}
 - !service: {name: 'SEMgrSvc', operation: change, startup: 4}
 - !service: {name: 'wercplsupport', operation: change, startup: 4}
@@ -110,14 +106,11 @@ actions:
 - !service: {name: 'TapiSrv', operation: change, startup: 4}
 - !service: {name: 'WpnService', operation: change, startup: 4}
 - !service: {name: 'fhsvc', operation: change, startup: 4}
-- !service: {name: 'irmon', operation: change, startup: 4}
 - !service: {name: 'stisvc', operation: change, startup: 4}
 - !service: {name: 'AssignedAccessManagerSvc', operation: change, startup: 4}
-- !service: {name: 'embeddedmode', operation: change, startup: 4}
 - !service: {name: 'CSC', operation: change, startup: 4}
 - !service: {name: 'CscService', operation: change, startup: 4}
 - !service: {name: 'shpamsvc', operation: change, startup: 4}
-- !service: {name: 'UserDataSvc', operation: change, startup: 4}
 - !service: {name: 'UnistoreSvc', operation: change, startup: 4}
 - !service: {name: 'VacSvc', operation: change, startup: 4}
 - !service: {name: 'WEPHOSTSVC', operation: change, startup: 4}
@@ -126,10 +119,8 @@ actions:
 - !service: {name: 'perceptionsimulation', operation: change, startup: 4}
 - !service: {name: 'WalletService', operation: change, startup: 4}
 - !service: {name: 'upnphost', operation: change, startup: 4}
-- !service: {name: 'UdkUserSvc', operation: change, startup: 4}
 - !service: {name: 'QWAVE', operation: change, startup: 4}
 - !service: {name: 'QWAVEdrv', operation: change, startup: 4}
-- !service: {name: 'rdyboost', operation: change, startup: 4}
 
 - !service: {name: 'diagsvc', operation: delete}
 - !service: {name: 'diagnosticshub.standardcollector.service', operation: delete}
