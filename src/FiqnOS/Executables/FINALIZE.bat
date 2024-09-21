@@ -8,31 +8,41 @@ for %%a in ( EnhancedPowerManagementEnabled AllowIdleIrpInD3 EnableSelectiveSusp
 
 PowerShell -NonInteractive -NoLogo -NoProfile -Command "Disable-MMAgent -mc | Disable-WindowsErrorReporting | Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
 
-label C: FiqnOS
-bcdedit /set {current} description "FiqnOS"
-bcdedit /set {globalsettings} custom:16000067 true
-bcdedit /set {globalsettings} custom:16000068 true
-bcdedit /set {globalsettings} custom:16000069 true
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Input" /v "InputServiceEnabled" /t REG_DWORD /d "0" /f >nul
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Input" /v "InputServiceEnabledForCCI" /t REG_DWORD /d "0" /f >nul
+reg add "HKEY_CURRENT_USER\Control Panel\Mouse" /v "MouseSpeed" /t REG_SZ /d "0" /f >nul
+reg add "HKEY_CURRENT_USER\Control Panel\Mouse" /v "MouseThreshold1" /t REG_SZ /d "0" /f >nul
+reg add "HKEY_CURRENT_USER\Control Panel\Mouse" /v "MouseThreshold2" /t REG_SZ /d "0" /f >nul
+reg add "HKEY_CURRENT_USER\Control Panel\Mouse" /v "MouseSensitivity" /t REG_SZ /d "10" /f >nul
+reg add "HKEY_USERS\.DEFAULT\Control Panel\Mouse" /v "MouseSpeed" /t REG_SZ /d "0" /f >nul
+reg add "HKEY_USERS\.DEFAULT\Control Panel\Mouse" /v "MouseThreshold1" /t REG_SZ /d "0" /f >nul
+reg add "HKEY_USERS\.DEFAULT\Control Panel\Mouse" /v "MouseThreshold2" /t REG_SZ /d "0" /f >nul
+
+bcdedit /set disabledynamictick yes
 bcdedit /deletevalue useplatformclock
-bcdedit /deletevalue disabledynamictick
+bcdedit /deletevalue useplatformtick
 bcdedit /set noumex Yes
 bcdedit /set bootems No
+bcdedit /set ems No
+bcdedit /set bootlog No
+bcdedit /set hypervisorlaunchtype No
 bcdedit /set isolatedcontext No
 bcdedit /set vsmlaunchtype Off
 bcdedit /set vm No
-bcdedit /set testsigning No
-bcdedit /set allowedinmemorysettings 0
-bcdedit /set perfmem 0
-bcdedit /set configflags 0
-bcdedit /set nolowmem Yes
+bcdedit /set quietboot Yes
+bcdedit /set integrityservices disable
 bcdedit /set nx optin
 bcdedit /set pae ForceDisable
 bcdedit /set x2apicpolicy Enable
 bcdedit /set bootux Disabled
-bcdedit /set tpmbootentropy ForceDisable
-bcdedit /set usephysicaldestination No
 bcdedit /set halbreakpoint No
 bcdedit /set bootmenupolicy legacy
+bcdedit /set tscsyncpolicy Enhanced
+bcdedit /set uselegacyapicmode No
+bcdedit /set loadoptions DISABLE-LSA-ISO,DISABLE-VBS
+bcdedit /set {current} description "FiqnOS"
+label C: FiqnOS
+cls
 
 PowerShell -NonInteractive -NoLogo -NoProfile -Command "Disable-MMAgent -mc | Disable-WindowsErrorReporting | Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
 
