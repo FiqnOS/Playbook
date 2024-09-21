@@ -4,9 +4,6 @@ description: windows-settings
 privilege: TrustedInstaller
 actions:
 
-# - Disable Disk Checkup
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager', value: 'BootExecute', type: REG_SZ, data: 'autocheck autochk /k:C*'}
-
 # - Disable Remote assistance
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance', value: 'fAllowFullControl', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance', value: 'fAllowToGetHelp', type: REG_DWORD, data: '0'}
@@ -233,12 +230,14 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Dsh', value: 'AllowNewsAndInterests', type: REG_DWORD, data: '0'}
 
 # - Allocate processor resources primarily to programs
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl', value: 'Win32PrioritySeparation', type: REG_DWORD, data: '36'}
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl', value: 'PsPrioritySeparation', type: REG_DWORD, data: '0'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl', value: 'Win32PrioritySeparation', type: REG_DWORD, data: '24'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl', value: 'ConvertibleSlateMode', type: REG_DWORD, data: '0'}
 
 # - reserve 0% of CPU resources for low-priority tasks instead of the default 20%
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile', value: 'SystemResponsiveness', type: REG_DWORD, data: '10'}
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile', value: 'NetworkThrottlingIndex', type: REG_DWORD, data: 'ffffffff'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile', value: 'LazyModeTimeout', type: REG_DWORD, data: '10000'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile', value: 'NoLazyMode', type: REG_DWORD, data: '1'}
 
 # - Disable Windows Spotlight (Tips and suggestions)
 - !registryValue: {path: 'HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CloudContent', value: 'DisableWindowsSpotlightFeatures', type: REG_DWORD, data: '1'}
@@ -412,9 +411,6 @@ actions:
 - !registryValue: {path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System', value: 'EnableCdp', type: REG_DWORD, data: '0'}
 
 # - Disabling Flags
-- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Accessibility', value: 'MessageDuration', type: REG_DWORD, data: '5'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Accessibility', value: 'MinimumHitRadius', type: REG_DWORD, data: '0'}
-- !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Accessibility', value: 'DynamicScrollbars', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Accessibility', value: 'Sound on Activation', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Accessibility', value: 'Warning Sounds', type: REG_DWORD, data: '0'}
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Accessibility\AudioDescription', value: 'Locale', type: REG_SZ, data: ''}
@@ -451,7 +447,7 @@ actions:
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys', value: 'Flags', type: REG_SZ, data: '0'}
 
 # - slit SvcHostSplitThresholdInKB for group
-- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control', value: 'SvcHostSplitThresholdInKB', type: REG_DWORD, data: '5201604'}
+- !registryValue: {path: 'HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control', value: 'SvcHostSplitThresholdInKB', type: REG_DWORD, data: '33333333'}
 
 # - Disable Pointer Acceleration
 - !registryValue: {path: 'HKEY_CURRENT_USER\Control Panel\Mouse', value: 'MouseThreshold1', type: REG_DWORD, data: '0'}
