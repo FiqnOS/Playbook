@@ -1,12 +1,29 @@
 @echo off
 setlocal EnableDelayedExpansion
 
-setx DOTNET_CLI_TELEMETRY_OPTOUT 1
-setx POWERSHELL_TELEMETRY_OPTOUT 1
+setx DOTNET_CLI_TELEMETRY_OPTOUT 1 & setx POWERSHELL_TELEMETRY_OPTOUT 1
 
-for %%a in ( EnhancedPowerManagementEnabled AllowIdleIrpInD3 EnableSelectiveSuspend DeviceSelectiveSuspended SelectiveSuspendEnabled SelectiveSuspendOn WaitWakeEnabled D3ColdSupported WdfDirectedPowerTransitionEnable EnableIdlePowerManagement IdleInWorkingState) do for /f "delims=" %%b in ('reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum" /s /f "%%a" ^| findstr "HKEY"') do Reg.exe add "%%b" /v "%%a" /t REG_DWORD /d "0" /f
-
-PowerShell -NonInteractive -NoLogo -NoProfile -Command "Disable-MMAgent -mc | Disable-WindowsErrorReporting | Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
+for %%a in (
+	EnhancedPowerManagementEnabled
+	AllowIdleIrpInD3
+	EnableSelectiveSuspend
+	DeviceSelectiveSuspended
+	SelectiveSuspendEnabled
+	SelectiveSuspendOn
+	EnumerationRetryCount
+	ExtPropDescSemaphore
+	WaitWakeEnabled
+	D3ColdSupported
+	WdfDirectedPowerTransitionEnable
+	EnableIdlePowerManagement
+	IdleInWorkingState
+	fid_D1Latency
+	fid_D2Latency
+	fid_D3Latency
+	IoLatencyCap
+	DmaRemappingCompatible
+	DmaRemappingCompatibleSelfhost
+) do for /f "delims=" %%b in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum" /s /f "%%b" ^| findstr "HKEY"') do reg add "%%b" /v "%%b" /t REG_DWORD /d "0" /f >nul
 
 bcdedit /set disabledynamictick yes
 bcdedit /deletevalue useplatformclock
@@ -62,6 +79,7 @@ endlocal
 PowerShell -NonInteractive -NoLogo -NoProfile -Command "Disable-MMAgent -mc | Disable-WindowsErrorReporting | Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
 
 powershell -NoProfile -Command "Disable-NetAdapterBinding -Name "*" -ComponentID ms_tcpip6, ms_msclient, ms_server, ms_rspndr, ms_lltdio, ms_implat, ms_lldp"
+PowerShell -command "Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
 
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SysMain" /v "start" /t REG_DWORD /d "4" /f
 
@@ -72,4 +90,6 @@ for /f "delims=" %%u in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services\NetB
 fsutil behavior set disable8dot3 1
 fsutil behavior set disablelastaccess 1
 fsutil behavior set disabledeletenotify 0
+fsutil behavior set encryptpagingfile 0
+fsutil behavior set disablecompression 1
 fsutil behavior set memoryusage 2
