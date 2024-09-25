@@ -3,20 +3,25 @@ title: Components
 description: Remove windows components and files
 actions:
   - !writeStatus: {status: "Removing components"}
-  - !taskKill: {name: "explorer"}
-  - !taskKill: {name: "SecurityHealthHost"}
-  - !taskKill: {name: "SecurityHealthService"}
-  - !taskKill: {name: "SecurityHealthSystray"}
-  - !taskKill: {name: "SkypeBackgroundHost"}
-  - !taskKill: {name: "OneDrive"}
 
-  # Разрешение на удаление Edge, EdgeUpdate, WebView
+  # Microsoft Edge
+  - !writeStatus: {status: "Removing Microsoft Edge", option: "remove-edge"}
+  - !taskKill: {name: "MicrosoftEdgeUpdate", ignoreErrors: true, option: "remove-edge"}
+  - !taskKill: {name: "msedge", ignoreErrors: true, option: "remove-edge"}
+  - !taskKill: {name: "MicrosoftEdge*", ignoreErrors: true, option: "remove-edge"}
+  - !taskKill: {name: "setup", ignoreErrors: true, pathContains: "\\Edge", option: "remove-edge"}
+  
+  - !powerShell:
+    command: '.\EDGE.ps1 -Mode EdgeBrowser'
+    exeDir: true
+    runas: currentUserElevated
+    option: "remove-edge"
+    weight: 40
+
+  - !file: {path: "%ProgramFiles(x86)%\\Microsoft\\Edge", option: "remove-edge", weight: 50}
+  - !file: {path: "%ProgramFiles(x86)%\\Microsoft\\EdgeUpdate", option: "remove-edge"}
+
+  # Allow uninstall of Edge, EdgeUpdate and WebView
   - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge', value: 'NoRemove', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update', value: 'NoRemove', type: REG_DWORD, data: '0'}
   - !registryValue: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView', value: 'NoRemove', type: REG_DWORD, data: '0'}
-
-  # Clear caches of Client.CBS and more
-  - !appx: {operation: clearCache, name: '*Windows.Search*'}
-  - !appx: {operation: clearCache, name: '*Windows.SecHealthUI*'}
-  - !appx: {operation: clearCache, name: '*Client.CBS*'}
-  - !appx: {operation: clearCache, name: '*TCUI*'}
