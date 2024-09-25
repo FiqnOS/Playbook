@@ -8,18 +8,21 @@ actions:
   exeDir: true
   exe: "Copy.bat"
 
+- !writeStatus: {status: "Refreshing"}
+- !taskKill: {name: "explorer", ignoreErrors: true}
+- !taskKill: {name: "SearchApp", ignoreErrors: true}
+- !taskKill: {name: "SearchHost", ignoreErrors: true}
+- !taskKill: {name: "RuntimeBroker", ignoreErrors: true}
+- !taskKill: {name: "TextInputHost", ignoreErrors: true}
+- !taskKill: {name: "ShellExperienceHost", ignoreErrors: true}
+- !taskKill: {name: "backgroundTaskHost", ignoreErrors: true}
+- !taskKill: {name: "Widgets", ignoreErrors: true}
+
 - !run:
   exeDir: true
   exe: "PowerShell"
   args: '-NoP -ExecutionPolicy Bypass -File SVCGROUP.ps1'
   weight: 50
-
-- !taskKill: {name: "explorer"}
-- !taskKill: {name: "SecurityHealthHost"}
-- !taskKill: {name: "SecurityHealthService"}
-- !taskKill: {name: "SecurityHealthSystray"}
-- !taskKill: {name: "SkypeBackgroundHost"}
-- !taskKill: {name: "onedrive"}
 
 - !writeStatus: {status: "Removing logs"}
 - !run:
@@ -51,14 +54,20 @@ actions:
   exeDir: true
   exe: "DEVMANVIEW.bat"
 
-- !writeStatus: {status: "Disabling Defender"}
-- !run:
-  exeDir: true
-  exe: "Defender.bat"
-  weight: 40
-
-- !writeStatus: {status: "Finalize"}
+- !writeStatus: {status: "FINALIZE"}
 - !run: 
   exeDir: true
   exe: "FINALIZE.bat"
   weight: 150
+
+  # Necessary to refresh start menu entries etc.
+- !appx: {operation: clearCache, name: '*Client.CBS*'}
+- !appx: {operation: clearCache, name: '*StartMenuExperienceHost*'}
+- !appx: {operation: clearCache, name: '*Windows.Search*'}
+- !appx: {operation: clearCache, name: '*TCUI*'}
+  # Workaround for KGL versions to match
+- !appx: {operation: clearCache, name: '*XboxGameCallableUI*'}
+- !appx: {operation: clearCache, name: '*XboxGameOverlay*'}
+- !appx: {operation: clearCache, name: '*XboxGamingOverlay*'}
+- !appx: {operation: clearCache, name: '*XboxIdentityProvider*'}
+- !appx: {operation: clearCache, name: '*XboxSpeechToTextOverlay*'}
