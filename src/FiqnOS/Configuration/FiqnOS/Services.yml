@@ -4,8 +4,6 @@ description: Disable Services
 actions:
 - !writeStatus {status: "Disabling Services"}
 
-- !taskKill: {name: "SecurityHealthService"}
-
 - !service: {name: 'TroubleshootingSvc', operation: change, startup: 4}
 - !service: {name: 'sedsvc', operation: change, startup: 4}
 - !service: {name: 'wudfsvc', operation: change, startup: 4}
@@ -67,7 +65,6 @@ actions:
 - !service: {name: 'GpuEnergyDrv', operation: change, startup: 4}
 - !service: {name: 'OneSyncSvc', operation: change, startup: 4}
 - !service: {name: 'PcaSvc', operation: change, startup: 4}
-- !service: {name: 'PimIndexMaintenanceSvc', operation: change, startup: 4}
 - !service: {name: 'printworkflowusersvc', operation: change, startup: 4}
 - !service: {name: 'PolicyAgent', operation: change, startup: 4}
 - !service: {name: 'UevAgentService', operation: change, startup: 4}
@@ -78,16 +75,11 @@ actions:
 - !service: {name: 'wuauserv', operation: change, startup: 4}
 - !service: {name: 'RetailDemo', operation: change, startup: 4}
 - !service: {name: 'SysMain', operation: change, startup: 4}
-- !service: {name: 'SCardSvr', operation: change, startup: 4}
-- !service: {name: 'ScDeviceEnum', operation: change, startup: 4}
-- !service: {name: 'SCPolicySvc', operation: change, startup: 4}
-- !service: {name: 'scfilter', operation: change, startup: 4}
 - !service: {name: 'SDRSVC', operation: change, startup: 4}
 - !service: {name: 'SharedRealitySvc', operation: change, startup: 4}
 - !service: {name: 'spooler', operation: change, startup: 4}
 - !service: {name: 'SSDPSRV', operation: change, startup: 4}
 - !service: {name: 'TrkWks', operation: change, startup: 4}
-- !service: {name: 'tzautoupdate', operation: change, startup: 4}
 - !service: {name: 'tcpipreg', operation: change, startup: 4}
 - !service: {name: 'WerSvc', operation: change, startup: 4}
 - !service: {name: 'WSearch', operation: change, startup: 4}
@@ -107,7 +99,6 @@ actions:
 - !service: {name: 'WpnService', operation: change, startup: 4}
 - !service: {name: 'fhsvc', operation: change, startup: 4}
 - !service: {name: 'stisvc', operation: change, startup: 4}
-- !service: {name: 'AssignedAccessManagerSvc', operation: change, startup: 4}
 - !service: {name: 'CSC', operation: change, startup: 4}
 - !service: {name: 'CscService', operation: change, startup: 4}
 - !service: {name: 'shpamsvc', operation: change, startup: 4}
@@ -122,7 +113,6 @@ actions:
 - !service: {name: 'QWAVE', operation: change, startup: 4}
 - !service: {name: 'QWAVEdrv', operation: change, startup: 4}
 
-- !service: {name: 'diagsvc', operation: delete}
 - !service: {name: 'diagnosticshub.standardcollector.service', operation: delete}
 - !service: {name: 'dmwappushservice', operation: delete}
 - !service: {name: 'DiagTrack', operation: delete}
@@ -131,8 +121,6 @@ actions:
 - !cmd: {command: "sc config WdiServiceHost start=Disabled"}
 - !cmd: {command: "sc stop WdiSystemHost"}
 - !cmd: {command: "sc config WdiSystemHost start=Disable"}
-- !cmd: {command: "sc stop NvTelemetryContainer"}
-- !cmd: {command: "sc config NvTelemetryContainer start=Disable"}
 
 - !service: {name: 'UCPD', operation: change, startup: 4}
 - !powerShell: {command: "Disable-ScheduledTask -TaskPath '\\Microsoft\\Windows\\AppxDeploymentClient' -TaskName 'UCPD velocity'"}
