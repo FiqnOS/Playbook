@@ -49,6 +49,12 @@ actions:
   exe: "ONED.bat"
   weight: 50
 
+- !writeStatus: {status: "Configuring Power Settings"}
+- !run: 
+  exeDir: true
+  exe: "POW.CMD"
+  weight: 30
+
 - !writeStatus: {status: "Configuring Device Manager"}
 - !run: 
   exeDir: true
