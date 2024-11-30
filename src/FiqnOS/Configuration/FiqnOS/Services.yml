@@ -6,7 +6,6 @@ actions:
 
 - !service: {name: "TroubleshootingSvc", operation: change, startup: 4}
 - !service: {name: "sedsvc", operation: change, startup: 4}
-- !service: {name: "wudfsvc", operation: change, startup: 4}
 - !service: {name: "Wecsvc", operation: change, startup: 4}
 - !service: {name: "Telemetry", operation: change, startup: 4}
 - !service: {name: "DPS", operation: change, startup: 4}
@@ -16,34 +15,18 @@ actions:
 - !service: {name: "Sense", operation: change, startup: 4}
 - !service: {name: "SensorDataService", operation: change, startup: 4}
 - !service: {name: "SensorService", operation: change, startup: 4}
-- !service: {name: "diagsvc", operation: change, startup: 4}
 - !service: {name: "diagnosticshub.standardcollector.service", operation: change, startup: 4}
 - !service: {name: "dmwappushservice", operation: change, startup: 4}
 - !service: {name: "DiagTrack", operation: change, startup: 4}
-- !service: {name: "wlpasvc", operation: change, startup: 4}
-- !service: {name: "DmEnrollmentSvc", operation: change, startup: 4}
-- !service: {name: "SNMPTRAP", operation: change, startup: 4}
 - !service: {name: "SEMgrSvc", operation: change, startup: 4}
 - !service: {name: "wercplsupport", operation: change, startup: 4}
-- !service: {name: "vmicvmsession", operation: change, startup: 4}
-- !service: {name: "vmicshutdown", operation: change, startup: 4}
-- !service: {name: "vmicrdv", operation: change, startup: 4}
-- !service: {name: "vmicvss", operation: change, startup: 4}
-- !service: {name: "vmicheartbeat", operation: change, startup: 4}
-- !service: {name: "vmictimesync", operation: change, startup: 4}
-- !service: {name: "HvHost", operation: change, startup: 4}
-- !service: {name: "WManSvc", operation: change, startup: 4}
 - !service: {name: "AppReadiness", operation: change, startup: 4}
 - !service: {name: "bam", operation: change, startup: 4}
 - !service: {name: "EFS", operation: change, startup: 4}
 - !service: {name: "PeerDistSvc", operation: change, startup: 4}
 - !service: {name: "NetTcpPortSharing", operation: change, startup: 4}
-- !service: {name: "CertPropSvc", operation: change, startup: 4}
 - !service: {name: "RemoteRegistry", operation: change, startup: 4}
 - !service: {name: "FontCache", operation: change, startup: 4}
-- !service: {name: "FontCache3.0.0.0", operation: change, startup: 4}
-- !service: {name: "ssh-agent", operation: delete}
-- !service: {name: "AxInstSV", operation: change, startup: 4}
 - !service: {name: "BDESVC", operation: change, startup: 4}
 - !service: {name: "DusmSvc", operation: change, startup: 4}
 - !service: {name: "DsSvc", operation: change, startup: 4}
@@ -56,6 +39,9 @@ actions:
 - !service: {name: "MapsBroker", operation: change, startup: 4}
 - !service: {name: "Ndu", operation: change, startup: 4}
 - !service: {name: "NetBT", operation: change, startup: 4}
+- !service: {name: "NetBIOS", operation: change, startup: 4}
+- !service: {name: "Server", operation: change, startup: 4}
+- !service: {name: "ShellHWDetection", operation: change, startup: 4}
 - !service: {name: "GraphicsPerfSvc", operation: change, startup: 4}
 - !service: {name: "GpuEnergyDrv", operation: change, startup: 4}
 - !service: {name: "OneSyncSvc", operation: change, startup: 4}
@@ -69,8 +55,6 @@ actions:
 - !service: {name: "wuauserv", operation: change, startup: 4}
 - !service: {name: "RetailDemo", operation: change, startup: 4}
 - !service: {name: "SysMain", operation: change, startup: 4}
-- !service: {name: "SDRSVC", operation: change, startup: 4}
-- !service: {name: "SharedRealitySvc", operation: change, startup: 4}
 - !service: {name: "spooler", operation: change, startup: 4}
 - !service: {name: "SSDPSRV", operation: change, startup: 4}
 - !service: {name: "TrkWks", operation: change, startup: 4}
@@ -86,23 +70,11 @@ actions:
 - !service: {name: "XblAuthManager", operation: change, startup: 4}
 - !service: {name: "xboxgip", operation: change, startup: 4}
 - !service: {name: "XboxGipSvc", operation: change, startup: 4}
-- !service: {name: "TieringEngineService", operation: change, startup: 4}
 - !service: {name: "SgrmBroker", operation: change, startup: 4}
 - !service: {name: "RemoteAccess", operation: change, startup: 4}
-- !service: {name: "TapiSrv", operation: change, startup: 4}
-- !service: {name: "WpnService", operation: change, startup: 4}
-- !service: {name: "fhsvc", operation: change, startup: 4}
 - !service: {name: "stisvc", operation: change, startup: 4}
 - !service: {name: "CSC", operation: change, startup: 4}
 - !service: {name: "CscService", operation: change, startup: 4}
-- !service: {name: "shpamsvc", operation: change, startup: 4}
-- !service: {name: "UnistoreSvc", operation: change, startup: 4}
-- !service: {name: "VacSvc", operation: change, startup: 4}
-- !service: {name: "WEPHOSTSVC", operation: change, startup: 4}
-- !service: {name: "WMPNetworkSvc", operation: change, startup: 4}
-- !service: {name: "spectrum", operation: change, startup: 4}
-- !service: {name: "perceptionsimulation", operation: change, startup: 4}
-- !service: {name: "WalletService", operation: change, startup: 4}
 - !service: {name: "upnphost", operation: change, startup: 4}
 - !service: {name: "QWAVE", operation: change, startup: 4}
 - !service: {name: "QWAVEdrv", operation: change, startup: 4}
@@ -112,9 +84,6 @@ actions:
 - !service: {name: "DiagTrack", operation: delete}
 
 - !cmd: {command: "sc stop WdiServiceHost"}
-- !cmd: {command: "sc config WdiServiceHost start=Disabled"}
+- !cmd: {command: "sc config WdiServiceHost start= disabled"}
 - !cmd: {command: "sc stop WdiSystemHost"}
-- !cmd: {command: "sc config WdiSystemHost start=Disable"}
-
-- !service: {name: "UCPD", operation: change, startup: 4}
-- !powerShell: {command: "Disable-ScheduledTask -TaskPath "\\Microsoft\\Windows\\AppxDeploymentClient" -TaskName "UCPD velocity""}
+- !cmd: {command: "sc config WdiSystemHost start= disable"}
