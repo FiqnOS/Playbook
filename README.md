@@ -9,11 +9,11 @@
 
 ### 🖥️ System requirements
 
-- Windows 10 22H2 `19045`
+- Windows 11 24H2 `26100`
 
 - Windows 11 23H2 `22631`
 
-- Windows 11 24H2 `26100`
+- Windows 10 22H2 `19045`
 
 > [!CAUTION]
 > Do not use the Windows build by Flibustier, you get BSOD after reboot!
