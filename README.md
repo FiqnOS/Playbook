@@ -18,4 +18,5 @@
 - Windows 10 22H2 `19045`
 
 > [!CAUTION]
-> Do not use the Windows build by Flibustier, you get BSOD after reboot with error INACCESSIBLE_BOOT_DEVICE! and 23H2 & 24H2 unstable
+> Do not use the Windows build by Flibustier, you get BSOD after reboot with error INACCESSIBLE_BOOT_DEVICE! 
+23H2 & 24H2 unstable
