@@ -1,4 +1,4 @@
-![image](https://github.com/FiqnOS/Playbook/blob/main/photos/FiqnOS.png)            
+![image](https://github.com/FiqnOS/Playbook/blob/main/photos/banner.png)            
 ##### Recommended install clean **[Windows](https://massgrave.dev/genuine-installation-media)**, before using Playbook
 
 ### 🤷‍♂️ How to use it?
